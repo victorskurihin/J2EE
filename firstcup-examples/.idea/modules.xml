@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/archetypes/archetypes.iml" filepath="$PROJECT_DIR$/archetypes/archetypes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dukes-age/dukes-age.iml" filepath="$PROJECT_DIR$/dukes-age/dukes-age.iml" />
+      <module fileurl="file://$PROJECT_DIR$/archetypes/dukes-age-archetype/dukes-age-archetype.iml" filepath="$PROJECT_DIR$/archetypes/dukes-age-archetype/dukes-age-archetype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/firstcup-examples.iml" filepath="$PROJECT_DIR$/firstcup-examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/firstcup-war/firstcup-war.iml" filepath="$PROJECT_DIR$/firstcup-war/firstcup-war.iml" />
+      <module fileurl="file://$PROJECT_DIR$/archetypes/firstcup-war-archetype/firstcup-war-archetype.iml" filepath="$PROJECT_DIR$/archetypes/firstcup-war-archetype/firstcup-war-archetype.iml" />
+    </modules>
+  </component>
+</project>
