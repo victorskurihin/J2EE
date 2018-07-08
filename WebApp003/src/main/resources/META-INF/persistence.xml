@@ -8,7 +8,7 @@
     <persistence-unit name="jta" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/Postgres</jta-data-source>
-        <class>su.svn.WebApp003.models.UserDataSet</class>
+        <class>su.svn.webapp003.models.UserDataSet</class>
         <!-- exclude-unlisted-classes>false</exclude-unlisted-classes -->
         <properties>
             <property name="javax.persistence.jdbc.url"

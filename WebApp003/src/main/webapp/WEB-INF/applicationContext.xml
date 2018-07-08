@@ -14,8 +14,8 @@
         http://www.springframework.org/schema/tx  
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:component-scan base-package="su.svn.WebApp003.controllers"/>
-    <context:component-scan base-package="su.svn.WebApp003.models"/>
+    <context:component-scan base-package="su.svn.webapp003.controllers"/>
+    <context:component-scan base-package="su.svn.webapp003.models"/>
 
     <bean class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"/>
 

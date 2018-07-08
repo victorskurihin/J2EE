@@ -34,8 +34,8 @@
         </RollingFile>
 
         <RollingFile name="fileWebApp003"
-                     fileName="log/webApp002-debug.log"
-                     filePattern="log/webApp002-debug-${EXT_PATTERN}.log">
+                     fileName="log/webApp003-debug.log"
+                     filePattern="log/webApp003-debug-${EXT_PATTERN}.log">
             <LevelRangeFilter minLevel="INFO" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
@@ -55,7 +55,7 @@
             <AppenderRef ref="fileSpring" level="debug" additivity="false"/>
         </Logger>
 
-        <Logger name="su.svn.WebApp003" level="debug" additivity="false">
+        <Logger name="su.svn.webapp003" level="debug" additivity="false">
             <AppenderRef ref="fileWebApp003" level="debug"/>
         </Logger>
     </Loggers>
