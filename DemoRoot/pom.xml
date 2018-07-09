@@ -23,7 +23,19 @@
         <maven.compiler.source>${jdk.version}</maven.compiler.source>
         <maven.compiler.target>${jdk.version}</maven.compiler.target>
 
+        <org.glassfish.main.core.version>5.0</org.glassfish.main.core.version>
+        <com.fasterxml.jackson.version>2.8.9</com.fasterxml.jackson.version>
+        <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <org.eclipse.persistence.version>2.7.1</org.eclipse.persistence.version>
+
+        <junit.version>4.12</junit.version>
+        <jstl.version>1.2</jstl.version>
+        <logback.version>1.0.13</logback.version>
+        <jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+        <com.google.guava.version>13.0.1</com.google.guava.version>
+        <org.apache.logging.log4j.version>2.11.0</org.apache.logging.log4j.version>
+        <org.springframework.version>4.3.18.RELEASE</org.springframework.version>
+
     </properties>
 
     <dependencyManagement>
