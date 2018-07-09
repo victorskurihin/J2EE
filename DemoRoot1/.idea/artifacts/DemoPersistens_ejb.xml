@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ejb-jar" name="DemoPersistens:ejb">
-    <output-path>$PROJECT_DIR$/DemoPersistens/target</output-path>
-    <root id="archive" name="DemoPersistens-1.0-1.jar">
-      <element id="artifact" artifact-name="DemoPersistens:ejb exploded" />
-    </root>
-  </artifact>
-</component>
