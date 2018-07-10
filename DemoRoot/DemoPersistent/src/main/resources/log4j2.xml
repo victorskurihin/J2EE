@@ -2,7 +2,8 @@
 <Configuration>
     <!-- Logging Properties -->
     <Properties>
-        <Property name="PREFIX">su.svn.demo.persistent</Property>
+        <Property name="PREFIX_WEB">su.svn.demo.web</Property>
+        <Property name="PREFIX_PERSISTENT">su.svn.demo.persistent</Property>
         <Property name="EXT_PATTERN">%d{yyyy-MM-dd}-%i</Property>
         <Property name="LOG_PATTERN">%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n</Property>
     </Properties>
@@ -13,8 +14,8 @@
         </Console>
 
         <RollingFile name="fileRoot"
-                     fileName="log/${PREFIX}-root-debug.log"
-                     filePattern="log/${PREFIX}-root-debug-${EXT_PATTERN}.log">
+                     fileName="log/${PREFIX_PERSISTENT}-root-debug.log"
+                     filePattern="log/${PREFIX_PERSISTENT}-root-debug-${EXT_PATTERN}.log">
             <LevelRangeFilter minLevel="INFO" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
@@ -23,9 +24,20 @@
             <DefaultRolloverStrategy max="10"/>
         </RollingFile>
 
-        <RollingFile name="fileDemo"
-                     fileName="log/${PREFIX}-demo-debug.log"
-                     filePattern="log/${PREFIX}-demo-debug-${EXT_PATTERN}.log">
+        <RollingFile name="fileDemoPersistent"
+                     fileName="log/${PREFIX_PERSISTENT}-demo-debug.log"
+                     filePattern="log/${PREFIX_PERSISTENT}-demo-debug-${EXT_PATTERN}.log">
+            <LevelRangeFilter minLevel="INFO" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+        <RollingFile name="fileDemoWeb"
+                     fileName="log/${PREFIX_WEB}-demo-debug.log"
+                     filePattern="log/${PREFIX_WEB}-demo-debug-${EXT_PATTERN}.log">
             <LevelRangeFilter minLevel="INFO" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
@@ -42,7 +54,11 @@
         </Root>
 
         <Logger name="su.svn.demo.persistent" level="debug" additivity="false">
-            <AppenderRef ref="fileDemo" level="debug"/>
+            <AppenderRef ref="fileDemoPersistent" level="debug"/>
+        </Logger>
+
+        <Logger name="su.svn.demo.web" level="debug" additivity="false">
+            <AppenderRef ref="fileDemoWeb" level="debug"/>
         </Logger>
     </Loggers>
 </Configuration>

@@ -1,5 +1,8 @@
 package su.svn.demo.persistent;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.ejb.Stateless;
 import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
@@ -8,8 +11,9 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
-// @ApplicationScoped
 public class ConfigDAO {
+    private final static Logger LOG =  LogManager.getLogger(ConfigDAO.class);
+
     @PersistenceContext(unitName = "jta")
     private EntityManager entityManager;
 
@@ -33,6 +37,7 @@ public class ConfigDAO {
         TypedQuery<ConfigDataSet> namedQuery = entityManager.createNamedQuery(
                 "Config.getAll", ConfigDataSet.class
         );
+        LOG.info("namedQuery {}", namedQuery.toString());
         return namedQuery.getResultList();
     }
 }

@@ -1,5 +1,7 @@
 package su.svn.demo.web;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import su.svn.demo.persistent.ConfigDAO;
 import su.svn.demo.persistent.ConfigDataSet;
 
@@ -15,6 +17,7 @@ import java.util.List;
 @Stateless
 public class SimpleServlet extends HttpServlet {
     private static final long serialVersionUID = -4751096228274971485L;
+    private final static Logger LOG =  LogManager.getLogger(SimpleServlet.class);
 
     @EJB
     private ConfigDAO configDAO;
@@ -23,11 +26,19 @@ public class SimpleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest reqest, HttpServletResponse response)
         throws ServletException, IOException {
 
+        LOG.info("Servlet got request {}", reqest);
         String configString = "configDAO is null";
 
         if (configDAO != null) {
             List<ConfigDataSet> config = configDAO.getAll();
-            configString = config != null ? config.toString() : "config is null";
+            if (config != null) {
+                LOG.info("Servlet do DAO request getAll {}", config.toArray());
+                configString = config.toString();
+            } else {
+                LOG.info("Servlet do DAO request getAll");
+                configString = "config is null";
+
+            }
         }
 
         response.getWriter().println("Config: " + configString);
@@ -35,11 +46,11 @@ public class SimpleServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        System.out.println("Servlet " + this.getServletName() + " has started");
+        LOG.info("Servlet {} has started", this.getServletName());
     }
 
     @Override
     public void destroy() {
-        System.out.println("Servlet " + this.getServletName() + " has stopped");
+        LOG.info("Servlet {} has stopped", this.getServletName());
     }
 }

@@ -1,14 +1,17 @@
 package su.svn.demo.persistent;
 
-import org.eclipse.persistence.annotations.PrimaryKey;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity(name = "CONFIG")
+@Table(
+    name = "CONFIG",
+    uniqueConstraints = {
+        @UniqueConstraint(name = "IDX_ID_NAME", columnNames = {"ID", "NAME"})
+    }
+)
 @NamedQuery(name = "Config.getAll", query = "SELECT c FROM CONFIG c")
-@PrimaryKey(columns = {@Column(name = "ID"), @Column(name = "NAME")})
 public class ConfigDataSet implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

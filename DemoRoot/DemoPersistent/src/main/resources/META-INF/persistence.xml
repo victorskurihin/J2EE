@@ -8,9 +8,20 @@
 
     <persistence-unit name="jta" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source>jdbc/__default</jta-data-source>
+        <jta-data-source>jdbc/Postgres</jta-data-source>
         <properties>
-            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:postgresql://localhost:5432/db;create=true"/>
+            <property name="javax.persistence.target-database" value="PostgreSQL" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="dbuser"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+            <property name="eclipselink.jpa.uppercase-column-names" value="true"/>
+            <property name="eclipselink.logging.parameters" value="true" />
+            <property name="eclipselink.logging.level" value="FINE" />
         </properties>
     </persistence-unit>
 </persistence>
